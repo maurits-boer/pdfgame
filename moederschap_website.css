@@ -1,0 +1,13 @@
+/* Externe CSS voor Moederschap Gids */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #fff;
+}
+
+header, nav, .logo, .nav-links, .mobile-menu, .hero, .features, .container, .section-title, .features-grid, .feature-card, .feature-icon, .content-preview, .preview-grid, .preview-item, .testimonials, .testimonials-grid, .testimonial, .testimonial-text, .testimonial-author, .pricing, .pricing-card, .price, .price-subtitle, .price-features, .footer-content, .footer-links, .download-section, .download-grid, .download-item, .download-button, .cta-button, .terug-link {
+    /* Zie inline styles in HTML voor details */
+}
+
+/* Responsive en basisstijlen zijn in de HTML gelaten voor eenvoud. */

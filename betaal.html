@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betaal je bestelling - Moederschap Gids</title>
+    <link rel="stylesheet" href="moederschap_website.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: #222;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .betaal-container {
+            max-width: 420px;
+            margin: 60px auto;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            padding: 2.5rem 2rem 2rem 2rem;
+            text-align: center;
+        }
+        .betaal-container h2 {
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+        .betaal-container form {
+            margin-top: 1.5rem;
+        }
+        .betaal-container input, .betaal-container select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.1rem;
+            border-radius: 7px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+        .betaal-container button {
+            background: #22c55e;
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .betaal-container button:hover {
+            background: #16a34a;
+        }
+        .terug-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: #22c55e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        .terug-link:hover {
+            color: #16a34a;
+        }
+        @media (max-width: 600px) {
+            .betaal-container {
+                margin: 30px 8px;
+                padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="betaal-container">
+        <h2>Betaal je bestelling</h2>
+        <p>Vul je gegevens in en kies je betaalmethode.<br><span style="color:#888; font-size:0.95rem;">(Demo, werkt nog niet echt)</span></p>
+        <form id="betaal-form" autocomplete="on">
+            <input type="text" name="naam" placeholder="Naam" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="text" name="adres" placeholder="Adres" required>
+            <select name="betaalmethode" required>
+                <option value="">Kies je betaalmethode</option>
+                <option value="ideal">iDEAL</option>
+                <option value="bancontact">Bancontact</option>
+                <option value="creditcard">Creditcard</option>
+            </select>
+            <button type="submit">Betaal €19,95</button>
+        </form>
+        <div id="form-feedback" style="display:none; color:#22c55e; margin-top:1rem; font-weight:bold;"></div>
+        <a href="moederschap_website.html" class="terug-link">← Terug naar de gids</a>
+        <p style="margin-top:1.2rem; font-size:0.95rem; color:#888;">Na betaling ontvang je direct de downloadlink per e-mail.</p>
+    </div>
+    <script>
+    // Simuleer betaalflow en valideer formulier
+    document.getElementById('betaal-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var naam = this.naam.value.trim();
+        var email = this.email.value.trim();
+        var adres = this.adres.value.trim();
+        var methode = this.betaalmethode.value;
+        if(!naam || !email || !adres || !methode) {
+            document.getElementById('form-feedback').style.display = 'block';
+            document.getElementById('form-feedback').style.color = '#e91e63';
+            document.getElementById('form-feedback').textContent = 'Vul alle velden in aub.';
+            return;
+        }
+        document.getElementById('form-feedback').style.display = 'block';
+        document.getElementById('form-feedback').style.color = '#22c55e';
+        document.getElementById('form-feedback').textContent = 'Betaling wordt verwerkt...';
+        setTimeout(function() {
+            window.location.href = 'bedankt.html';
+        }, 1200);
+    });
+    </script>
+</body>
+</html>
