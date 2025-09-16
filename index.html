@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moederschap Gids - Jouw Complete Handleiding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            padding: 120px 2rem 80px;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #e91e63;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 2rem;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: #e91e63;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Content Preview */
+        .content-preview {
+            padding: 80px 2rem;
+            background: white;
+        }
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .preview-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .preview-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .preview-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .preview-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .preview-item li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .preview-item li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 2rem;
+            background: #f8f9fa;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: #e91e63;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #e91e63;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 80px 2rem;
+            background: white;
+        }
+        
+        .pricing-card {
+            max-width: 400px;
+            margin: 3rem auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .price-subtitle {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .price-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .price-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .price-features li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+        }
+        
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            padding: 60px 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .download-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .download-item h4 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .download-button {
+            display: inline-block;
+            background: white;
+            color: #22c55e;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        
+        .download-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                padding: 1rem 2rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🤱 Moederschap Gids</div>
+            <ul class="nav-links">
+                <li><a href="moederschap_website.html">Home</a></li>
+                <li><a href="moederschap_website.html#features">Features</a></li>
+                <li><a href="moederschap_website.html#inhoud">Inhoud</a></li>
+                <li><a href="moederschap_website.html#reviews">Reviews</a></li>
+                <!-- Download link verwijderd uit navigatie -->
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Complete Gids voor Moederschap</h1>
+            <p>Van zwangerschap tot peuter - Jouw persoonlijke handboek vol praktische tips, checklists en ruimte voor eigen ervaringen</p>
+            <!-- Downloadknop verwijderd, alleen bestelknop zichtbaar -->
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Waarom kiezen voor onze gids?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Complete Informatie</h3>
+                    <p>10 uitgebreide hoofdstukken die je begeleiden van zwangerschap tot je kind 2 jaar is. Alles wat je moet weten op één plek.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Praktische Tools</h3>
+                    <p>Checklists, planners, budgettools en tracking formulieren die je echt gebruikt. Geen theorie, maar praktische hulp.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Expert Tips</h3>
+                    <p>Bewezen tips en tricks van ervaren moeders en zorgprofessionals. Leer van de beste ervaringen.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Persoonlijk Werkboek</h3>
+                    <p>Ruimte voor jouw eigen notities, herinneringen en ervaringen. Maak er jouw unieke verhaal van.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Digitaal & Print</h3>
+                    <p>Gebruik digitaal op je telefoon/tablet of print het uit als fysiek werkboek. Zoals jij het wilt.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Herbruikbaar</h3>
+                    <p>Perfect voor meerdere kinderen en om door te geven aan vrienden en familie. Een investering voor het leven.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Preview -->
+    <section id="inhoud" class="content-preview">
+        <div class="container">
+            <h2 class="section-title">Wat krijg je precies?</h2>
+            <div class="preview-grid">
+                <div class="preview-item">
+                    <h4>🤰 Zwangerschap</h4>
+                    <ul>
+                        <li>Mijlpalen per trimester</li>
+                        <li>Voorbereiding bevalling</li>
+                        <li>Ziekenhuistas checklist</li>
+                        <li>Belangrijke afspraken tracker</li>
+                    </ul>
+                </div>
+                <div class="preview-item">
+                    <h4>👶 Eerste Weken</h4>
+                    <ul>
+                        <li>Voedingsschema's</li>
+                        <li>Slaap tips & tricks</li>
+                        <li>Baby verzorging basis</li>
+                        <li>Wanneer dokter bellen?</li>
+                    </ul>
+                </div>
+                <div class="preview-item">
+                    <h4>📈 Groei & Ontwikkeling</h4>
+                    <ul>
+                        <li>Mijlpalen tracker</li>
+                        <li>Stimulatie activiteiten</li>
+                        <li>Speelgoed per leeftijd</li>
+                        <li>Eerste woordjes & stapjes</li>
+                    </ul>
+                </div>
+                <div class="preview-item">
+                    <h4>💰 Financiële Planning</h4>
+                    <ul>
+                        <li>Budget planner</li>
+                        <li>Kosten overzicht</li>
+                        <li>Bespaartips</li>
+                        <li>Uitkeringen & toeslagen</li>
+                    </ul>
+                </div>
+                <div class="preview-item">
+                    <h4>💕 Zelfzorg Mama</h4>
+                    <ul>
+                        <li>Welzijn tracker</li>
+                        <li>Kraamtranen herkennen</li>
+                        <li>Support netwerk opbouwen</li>
+                        <li>Work-life balance tips</li>
+                    </ul>
+                </div>
+                <div class="preview-item">
+                    <h4>🚀 Toekomstplanning</h4>
+                    <ul>
+                        <li>Kinderopvang vergelijker</li>
+                        <li>Terugkeer naar werk</li>
+                        <li>Lange termijn doelen</li>
+                        <li>Familie uitbreiden</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="reviews" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Wat zeggen andere mama's?</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        Deze gids heeft me echt geholpen tijdens mijn eerste zwangerschap. De checklists zijn super handig en ik gebruik het nog steeds voor mijn tweede kindje!
+                    </div>
+                    <div class="testimonial-author">- Sarah, mama van 2</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        Eindelijk alles op één plek! Geen zoeken meer naar informatie op het internet. De praktische tips zijn goud waard en hebben me veel stress bespaard.
+                    </div>
+                    <div class="testimonial-author">- Linda, eerste keer mama</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        De financiële planning sectie was een eye-opener. Nu weet ik precies waar mijn geld naartoe gaat en kan ik beter budgetteren voor ons gezin.
+                    </div>
+                    <div class="testimonial-author">- Jessica, mama van 1</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Investeer in jezelf en je gezin</h2>
+            <div class="pricing-card">
+                <div class="price">€19,95</div>
+                <div class="price-subtitle">Eenmalige aankoop - Voor altijd van jou</div>
+                <ul class="price-features">
+                    <li>✓ Complete 80+ pagina gids</li>
+                    <li>✓ 10 hoofdstukken vol expertise</li>
+                    <li>✓ Invulbare formulieren & checklists</li>
+                    <li>✓ Digitaal + print versie</li>
+                    <li>✓ Direct download na aankoop</li>
+                    <li>✓ Herbruikbaar voor meerdere kinderen</li>
+                    <li>✓ 30 dagen geld terug garantie</li>
+                </ul>
+                <a href="betaal.html" class="cta-button">Bestel Nu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download sectie verwijderd, download alleen via bedankt.html -->
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="mailto:info@moederschapgids.nl">Contact</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="voorwaarden.html">Voorwaarden</a>
+                <a href="faq.html">FAQ</a>
+                <a href="updates.html">Updates</a>
+            </div>
+            <p>&copy; 2024 Complete Gids voor Moederschap. Alle rechten voorbehouden.</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">
+                Gemaakt met ❤️ voor alle mama's en aanstaande mama's
+            </p>
+        </div>
+    </footer>
+
+
+                                    <!-- Bestelknop die naar de betaalpagina leidt -->
+                                    <a href="betaal.html" class="cta-button" style="margin-left: 1rem; background: #4ade80; color: white;">Bestel & Betaal</a>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Print guide function
+        function printGuide() {
+            // Open the guide in a new window and print
+            const guideWindow = window.open('moederschap-gids.html', '_blank');
+            guideWindow.onload = function() {
+                guideWindow.print();
+            };
+        }
+        
+        // Generate PDF function
+        function generatePDF() {
+            alert('Gebruik Ctrl+P (of Cmd+P op Mac) en kies "Opslaan als PDF" als bestemming om een PDF te maken van de gids.');
+            window.open('moederschap-gids.html', '_blank');
+        }
+        
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+        
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+
+    <!-- Schema markup for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Complete Gids voor Moederschap",
+        "description": "Uitgebreide gids met praktische tips voor zwangerschap, bevalling en de eerste jaren met je baby",
+        "brand": {
+            "@type": "Brand",
+            "name": "Moederschap Gids"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "19.95",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+        },
+        "category": "Parenting Guide",
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Parents, Expecting Mothers"
+        }
+    }
+    </script>
+</body>
+</html>
